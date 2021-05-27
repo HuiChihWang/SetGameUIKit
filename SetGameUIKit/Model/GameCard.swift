@@ -16,6 +16,10 @@ struct GameCard {
     var isSelected = false
     var isMatched = false
     
+    var info: (shape: Shape, shading: Shading, number: Number, color: Color) {
+        (shape: shape, shading: shading, number: number, color: color)
+    }
+    
     enum Shading: String, CaseIterable {
         case solid
         case striped
@@ -29,11 +33,11 @@ struct GameCard {
     }
     
     enum Number: Int, CaseIterable {
-        case one
-        case two
-        case three
+        case one = 1
+        case two = 2
+        case three = 3
     }
-    enum Color: CaseIterable {
+    enum Color: String, CaseIterable {
         case red
         case green
         case purple

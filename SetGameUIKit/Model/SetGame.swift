@@ -31,6 +31,9 @@ class SetGame {
         }
         
         cardsOnTable[index].isSelected.toggle()
+        
+        let cardSelect = cardsOnTable[index].info
+        print("select at (shape: \(cardSelect.shape), shading: \(cardSelect.shading), color: \(cardSelect.color), number: \(cardSelect.number)")
     }
     
     func dealThreeMoreCards() {
