@@ -57,7 +57,8 @@ class SetGame {
     }
     
     private func drawCardsToDeck(numberOfCards: Int) {
-        (0 ..< numberOfCards).forEach { index in
+        let numberDraw = min(numberOfLeftCards, numberOfCards)
+        (0 ..< numberDraw).forEach { index in
             let sampleCard = AllCards.remove(at: index)
             cardsOnTable.append(sampleCard)
         }
