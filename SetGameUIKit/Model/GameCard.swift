@@ -16,10 +16,6 @@ struct GameCard {
     var isSelected = false
     var isMatched = false
     
-    var info: (shape: Shape, shading: Shading, number: Number, color: Color) {
-        (shape: shape, shading: shading, number: number, color: color)
-    }
-    
     enum Shading: String, CaseIterable {
         case solid
         case striped
@@ -44,11 +40,15 @@ struct GameCard {
     }
 }
 
-extension GameCard: Hashable {
+extension GameCard: Hashable, Equatable {
     func hash(into hasher: inout Hasher) {
         hasher.combine(shape)
         hasher.combine(shading)
         hasher.combine(number)
         hasher.combine(color)
+    }
+    
+    static func ==(lhs: GameCard, rhs: GameCard) -> Bool {
+        lhs.hashValue == rhs.hashValue
     }
 }

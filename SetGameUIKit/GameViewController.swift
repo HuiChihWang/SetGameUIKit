@@ -11,12 +11,18 @@ class GameViewController: UIViewController {
     
     private var game = SetGame()
     
+    @IBOutlet weak var gameBoard: UICollectionView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
 
-
+    @IBAction func more3Card(_ sender: Any) {
+        game.dealThreeMoreCards()
+        gameBoard.reloadData()
+    }
+    
 }
 
 extension GameViewController: UICollectionViewDelegate, UICollectionViewDataSource {

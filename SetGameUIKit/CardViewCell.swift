@@ -21,7 +21,6 @@ class CardViewCell: UICollectionViewCell {
         let stackView = UIStackView(frame: contentView.frame)
         stackView.axis = .vertical
         
-        print("configure card: \(card)")
         let colorLabel = UILabel()
         colorLabel.text = card.color.rawValue
         stackView.addArrangedSubview(colorLabel)
@@ -38,7 +37,14 @@ class CardViewCell: UICollectionViewCell {
         shadingLabel.text = card.shading.rawValue
         stackView.addArrangedSubview(shadingLabel)
         
-        contentView.backgroundColor = card.isSelected ? .yellow : .green
+        
+        if card.isMatched {
+            contentView.backgroundColor = .systemPink
+        }
+        else {
+            contentView.backgroundColor = card.isSelected ? .yellow : .green
+        }
+        
         contentView.addSubview(stackView)
     }
 }

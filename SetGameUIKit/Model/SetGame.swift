@@ -17,32 +17,114 @@ class SetGame {
     
     private(set) var cardsOnTable = [GameCard]()
     
+    private var setMatched = [[GameCard]]()
+    
     var numberOfLeftCards: Int {
         AllCards.count
+    }
+    
+    private var isSetFull: Bool {
+        selectedCards.count == SetGame.numberPerSet
+    }
+    
+    private var isSetMatch: Bool {
+        SetGame.isSetMatch(cardsInSet: selectedCards)
     }
     
     init() {
         newGame()
     }
     
-    func selectCard(by index: Int) {
-        guard cardsOnTable.indices.contains(index) else {
+    func selectCard(by selectIndex: Int) {
+        guard cardsOnTable.indices.contains(selectIndex) else {
             return
         }
         
-        cardsOnTable[index].isSelected.toggle()
+        // check if previous 3 card match
+        if isSetFull {
+            let selectedIndexes = selectedCards.map { card in
+                return cardsOnTable.firstIndex(of: card)
+            }
+            
+            if selectedIndexes.contains(selectIndex) {
+                return
+            }
+            
+            if isSetMatch {
+                moveMatchedCardSet()
+                dealThreeMoreCards()
+            }
+            else {
+                selectedCards.forEach { card in
+                    deselectCardOnTable(on: card)
+                }
+                
+                selectedCards = [GameCard]()
+            }
+        }
         
-        let cardSelect = cardsOnTable[index].info
+        let cardSelect = cardsOnTable[selectIndex]
+        
+        if let index = selectedCards.firstIndex(of: cardSelect) {
+            // if card is already select -> deselect card, remove from set
+            selectedCards.remove(at: index)
+        }
+        else {
+            // if card is not in selected cards -> add card to set
+            selectedCards.append(cardSelect)
+        }
+        
+        // if there're 3 cards in the set and match
+        if isSetFull && isSetMatch {
+            selectedCards.forEach { matchCard in
+                if let index = cardsOnTable.firstIndex(of: matchCard) {
+                    cardsOnTable[index].isMatched = true
+                }
+            }
+            
+            print("set match")
+        } else {
+            if isSetFull {
+                print("unmatch")
+            }
+        }
+        
+        
+        
+        // change selected status
+        cardsOnTable[selectIndex].isSelected.toggle()
+        
         print("select at (shape: \(cardSelect.shape), shading: \(cardSelect.shading), color: \(cardSelect.color), number: \(cardSelect.number)")
+        print("\(selectedCards.count)")
     }
     
     func dealThreeMoreCards() {
         drawCardsToDeck(numberOfCards: 3)
     }
     
-    func  newGame() {
+    func newGame() {
         createFullStackOfCards()
         drawCardsToDeck(numberOfCards: SetGame.initialCarNumber)
+    }
+    
+    private func deselectCardOnTable(on card: GameCard) {
+        if let index = cardsOnTable.firstIndex(of: card) {
+            cardsOnTable[index].isSelected = false
+        }
+    }
+    
+    private func moveMatchedCardSet() {
+        setMatched.append(selectedCards)
+        selectedCards.forEach { card in
+           removeCardFromTable(with: card)
+        }
+        selectedCards = [GameCard]()
+    }
+    
+    private func removeCardFromTable(with card: GameCard) {
+        if let index = cardsOnTable.firstIndex(of: card) {
+            cardsOnTable.remove(at: index)
+        }
     }
     
     private func createFullStackOfCards() {
@@ -67,7 +149,7 @@ class SetGame {
         }
     }
     
-    private func isSetMatch(cardsInSet: [GameCard]) -> Bool {
+    private static func isSetMatch(cardsInSet: [GameCard]) -> Bool {
         guard cardsInSet.count == SetGame.numberPerSet else {
             return false
         }
