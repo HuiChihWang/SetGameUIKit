@@ -11,6 +11,7 @@ struct GameCard {
     let shape: Shape
     let shading: Shading
     let number : Number
+    let color: Color
     
     var isSelected = false
     var isMatched = false
@@ -32,6 +33,11 @@ struct GameCard {
         case two
         case three
     }
+    enum Color: CaseIterable {
+        case red
+        case green
+        case purple
+    }
 }
 
 extension GameCard: Hashable {
@@ -39,5 +45,6 @@ extension GameCard: Hashable {
         hasher.combine(shape)
         hasher.combine(shading)
         hasher.combine(number)
+        hasher.combine(color)
     }
 }

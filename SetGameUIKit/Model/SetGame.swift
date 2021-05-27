@@ -47,7 +47,9 @@ class SetGame {
         GameCard.Number.allCases.forEach { number in
             GameCard.Shape.allCases.forEach { shape in
                 GameCard.Shading.allCases.forEach { shading in
-                    AllCards.append(GameCard(shape: shape, shading: shading, number: number))
+                    GameCard.Color.allCases.forEach { color in
+                        AllCards.append(GameCard(shape: shape, shading: shading, number: number, color: color))
+                    }
                 }
             }
         }
@@ -69,8 +71,9 @@ class SetGame {
         let shapeList = cardsInSet.map { $0.shape }
         let shadingList = cardsInSet.map { $0.shading }
         let numberList = cardsInSet.map { $0.number }
+        let colorList = cardsInSet.map { $0.color }
         
-        return shapeList.isAllSameOrAllDifferent && shadingList.isAllSameOrAllDifferent && numberList.isAllSameOrAllDifferent
+        return shapeList.isAllSameOrAllDifferent && shadingList.isAllSameOrAllDifferent && numberList.isAllSameOrAllDifferent && colorList.isAllSameOrAllDifferent
     }
 
 }
