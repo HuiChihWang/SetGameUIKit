@@ -8,28 +8,37 @@
 import UIKit
 
 class CardViewCell: UICollectionViewCell {
-    
-    @IBOutlet weak var stackView: UIStackView!
+
+    override func prepareForReuse() {
+        contentView.subviews.forEach { view in
+            contentView.willRemoveSubview(view)
+            view.removeFromSuperview()
+        }
+    }
     
     func configure(with card: GameCard) {
+        
+        let stackView = UIStackView(frame: contentView.frame)
+        stackView.axis = .vertical
         
         print("configure card: \(card)")
         let colorLabel = UILabel()
         colorLabel.text = card.color.rawValue
-        stackView.addSubview(colorLabel)
+        stackView.addArrangedSubview(colorLabel)
         
         let numberLabel = UILabel()
         numberLabel.text = "\(card.number.rawValue)"
-        stackView.addSubview(numberLabel)
+        stackView.addArrangedSubview(numberLabel)
         
         let shapeLabel = UILabel()
         shapeLabel.text = card.shape.rawValue
-        stackView.addSubview(shapeLabel)
+        stackView.addArrangedSubview(shapeLabel)
         
         let shadingLabel = UILabel()
         shadingLabel.text = card.shading.rawValue
-        stackView.addSubview(shadingLabel)
+        stackView.addArrangedSubview(shadingLabel)
         
         contentView.backgroundColor = card.isSelected ? .yellow : .green
+        contentView.addSubview(stackView)
     }
 }
