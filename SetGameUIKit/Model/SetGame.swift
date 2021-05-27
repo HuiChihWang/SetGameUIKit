@@ -11,7 +11,7 @@ class SetGame {
     private static let initialCarNumber = 12
     private static let numberPerSet = 3
     
-    private var AllCards = [GameCard]()
+    private var allCards = [GameCard]()
     
     private var selectedCards = [GameCard]()
     
@@ -20,7 +20,7 @@ class SetGame {
     private var setMatched = [[GameCard]]()
     
     var numberOfLeftCards: Int {
-        AllCards.count
+        allCards.count
     }
     
     private var isSetFull: Bool {
@@ -36,7 +36,8 @@ class SetGame {
     }
     
     func selectCard(by selectIndex: Int) {
-        guard cardsOnTable.indices.contains(selectIndex) else {
+        guard !cardsOnTable[selectIndex].isEmptyCard else {
+            print("select on empty space")
             return
         }
         
@@ -52,7 +53,6 @@ class SetGame {
             
             if isSetMatch {
                 moveMatchedCardSet()
-                dealThreeMoreCards()
             }
             else {
                 selectedCards.forEach { card in
@@ -89,8 +89,6 @@ class SetGame {
             }
         }
         
-        
-        
         // change selected status
         cardsOnTable[selectIndex].isSelected.toggle()
         
@@ -102,6 +100,10 @@ class SetGame {
     }
     
     func newGame() {
+        setMatched = [[GameCard]]()
+        selectedCards = [GameCard]()
+        allCards = [GameCard]()
+        cardsOnTable = [GameCard]()
         createFullStackOfCards()
         drawCardsToDeck(numberOfCards: SetGame.initialCarNumber)
     }
@@ -115,36 +117,43 @@ class SetGame {
     private func moveMatchedCardSet() {
         setMatched.append(selectedCards)
         selectedCards.forEach { card in
-           removeCardFromTable(with: card)
+            removeCardFromTable(with: card)
         }
         selectedCards = [GameCard]()
     }
     
-    private func removeCardFromTable(with card: GameCard) {
-        if let index = cardsOnTable.firstIndex(of: card) {
-            cardsOnTable.remove(at: index)
-        }
-    }
-    
     private func createFullStackOfCards() {
-        AllCards = [GameCard]()
+        allCards = [GameCard]()
         GameCard.Number.allCases.forEach { number in
             GameCard.Shape.allCases.forEach { shape in
                 GameCard.Shading.allCases.forEach { shading in
                     GameCard.Color.allCases.forEach { color in
-                        AllCards.append(GameCard(shape: shape, shading: shading, number: number, color: color))
+                        allCards.append(GameCard(shape: shape, shading: shading, number: number, color: color))
                     }
                 }
             }
         }
-        AllCards.shuffle()
+        allCards.shuffle()
     }
     
     private func drawCardsToDeck(numberOfCards: Int) {
         let numberDraw = min(numberOfLeftCards, numberOfCards)
         (0 ..< numberDraw).forEach { index in
-            let sampleCard = AllCards.remove(at: index)
+            let sampleCard = allCards.remove(at: index)
             cardsOnTable.append(sampleCard)
+        }
+    }
+    
+    private func drawOneCardFromDeck() -> GameCard? {
+        if let cardIndex = allCards.indices.randomElement() {
+            return allCards.remove(at: cardIndex)
+        }
+        return nil
+    }
+    
+    private func removeCardFromTable(with card: GameCard) {
+        if let index = cardsOnTable.firstIndex(of: card) {
+            cardsOnTable[index] = drawOneCardFromDeck() ?? GameCard.createEmptyCard()
         }
     }
     
@@ -160,7 +169,7 @@ class SetGame {
         
         return shapeList.isAllSameOrAllDifferent && shadingList.isAllSameOrAllDifferent && numberList.isAllSameOrAllDifferent && colorList.isAllSameOrAllDifferent
     }
-
+    
 }
 
 extension Collection where Element: Hashable {

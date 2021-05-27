@@ -20,6 +20,41 @@ class CardViewCell: UICollectionViewCell {
         label.font = label.font.withSize(30)
         return label
     }()
+    
+    override func prepareForReuse() {
+        contentView.layer.cornerRadius = 0
+        contentView.layer.borderWidth = 0
+        contentView.backgroundColor = .clear
+        label.attributedText = NSAttributedString()
+    }
+    
+    func configure(with card: GameCard) {
+        guard !card.isEmptyCard else {
+            return
+        }
+        
+        contentView.layer.cornerRadius = 25
+        contentView.layer.borderWidth = 5
+        contentView.layer.borderColor = card.isSelected ? UIColor.red.cgColor : UIColor.black.cgColor
+        
+        setBackGroundColor(with: card)
+        
+        let displayString = String(repeating: card.shape.rawValue, count: card.number.rawValue)
+        let displayBorderColor = getBorderColor(with: card)
+        let displayTextureColor = getTextureColor(with: card)
+        let displayFont = UIFont.systemFont(ofSize: getFontSize(with: card))
+
+        let attribute: [NSAttributedString.Key: Any] = [
+            .font: displayFont,
+            .strokeColor: displayBorderColor,
+            .strokeWidth: -10.0,
+            .foregroundColor: displayTextureColor,
+        ]
+        
+        let attributeString = NSAttributedString(string: displayString, attributes: attribute)
+        label.attributedText = attributeString
+    }
+    
 
     private func getBorderColor(with card: GameCard) -> UIColor {
         switch card.color {
@@ -57,29 +92,6 @@ class CardViewCell: UICollectionViewCell {
         case .three:
             return 35
         }
-    }
-    
-    func configure(with card: GameCard) {
-        contentView.layer.cornerRadius = 25
-        contentView.layer.borderWidth = 5
-        contentView.layer.borderColor = card.isSelected ? UIColor.red.cgColor : UIColor.black.cgColor
-        
-        setBackGroundColor(with: card)
-        
-        let displayString = String(repeating: card.shape.rawValue, count: card.number.rawValue)
-        let displayBorderColor = getBorderColor(with: card)
-        let displayTextureColor = getTextureColor(with: card)
-        let displayFont = UIFont.systemFont(ofSize: getFontSize(with: card))
-
-        let attribute: [NSAttributedString.Key: Any] = [
-            .font: displayFont,
-            .strokeColor: displayBorderColor,
-            .strokeWidth: -10.0,
-            .foregroundColor: displayTextureColor,
-        ]
-        
-        let attributeString = NSAttributedString(string: displayString, attributes: attribute)
-        label.attributedText = attributeString
     }
     
     private func setBackGroundColor(with card: GameCard) {
