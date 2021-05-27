@@ -23,9 +23,9 @@ struct GameCard {
     }
     
     enum Shape: String, CaseIterable {
-        case diamond
-        case squiggle
-        case oval
+        case square = "■"
+        case circle = "●"
+        case triangle = "▲"
     }
     
     enum Number: Int, CaseIterable {

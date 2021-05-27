@@ -95,7 +95,6 @@ class SetGame {
         cardsOnTable[selectIndex].isSelected.toggle()
         
         print("select at (shape: \(cardSelect.shape), shading: \(cardSelect.shading), color: \(cardSelect.color), number: \(cardSelect.number)")
-        print("\(selectedCards.count)")
     }
     
     func dealThreeMoreCards() {
