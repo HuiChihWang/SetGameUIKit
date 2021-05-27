@@ -23,6 +23,10 @@ class GameViewController: UIViewController {
         gameBoard.reloadData()
     }
     
+    @IBAction func newGame(_ sender: Any) {
+        game.newGame()
+        gameBoard.reloadData()
+    }
 }
 
 extension GameViewController: UICollectionViewDelegate, UICollectionViewDataSource {

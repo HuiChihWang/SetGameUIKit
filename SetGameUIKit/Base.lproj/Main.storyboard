@@ -41,12 +41,22 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="2xT-qW-zZ5"/>
                                 </connections>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kAG-cI-2ez">
+                                <rect key="frame" x="112" y="787" width="190" height="60"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <state key="normal" title="New Game"/>
+                                <connections>
+                                    <action selector="newGame:" destination="BYZ-38-t0r" eventType="touchUpInside" id="P8a-Us-L5i"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="k0s-xt-4Ez" secondAttribute="bottom" constant="84" id="8c1-R8-mcO"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="kAG-cI-2ez" secondAttribute="bottom" constant="15" id="Jix-bJ-OpY"/>
                             <constraint firstItem="k0s-xt-4Ez" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="bzT-Iz-DH8"/>
+                            <constraint firstItem="kAG-cI-2ez" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="c0O-XO-VpV"/>
                             <constraint firstItem="k0s-xt-4Ez" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="32" id="jIl-Z8-mHp"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="k0s-xt-4Ez" secondAttribute="trailing" constant="20" id="pmp-2x-d7T"/>
                         </constraints>
