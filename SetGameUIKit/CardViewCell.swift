@@ -77,7 +77,7 @@ class CardViewCell: UICollectionViewCell {
         case .striped:
             alpha = 0.5
         case .solid:
-            alpha = 1
+            alpha = 1.5
         }
         
         return borderColor.withAlphaComponent(alpha)

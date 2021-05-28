@@ -14,10 +14,58 @@
             filePath = "SetGameUIKit/Model/SetGame.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "112"
-            endingLineNumber = "112"
+            startingLineNumber = "116"
+            endingLineNumber = "116"
             landmarkName = "deselectCardOnTable(on:)"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "92CB9F6E-5206-43EF-B45A-8C395CE198E2"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SetGameUIKit/Model/SetGame.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "149"
+            endingLineNumber = "149"
+            landmarkName = "drawCardsToDeck(numberOfCards:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "92CB9F6E-5206-43EF-B45A-8C395CE198E2 - 6d09ac6511497c0f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SetGameUIKit.SetGame.drawCardsToDeck(numberOfCards: Swift.Int) -&gt; ()"
+                  moduleName = "SetGameUIKit"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/huichihwang/Developer/SetGameUIKit/SetGameUIKit/Model/SetGame.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "149"
+                  endingLineNumber = "149"
+                  offsetFromSymbolStart = "59">
+               </Location>
+               <Location
+                  uuid = "92CB9F6E-5206-43EF-B45A-8C395CE198E2 - 7f2bebf45d55ad75"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Int) -&gt; () in SetGameUIKit.SetGame.drawCardsToDeck(numberOfCards: Swift.Int) -&gt; ()"
+                  moduleName = "SetGameUIKit"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/huichihwang/Developer/SetGameUIKit/SetGameUIKit/Model/SetGame.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "150"
+                  endingLineNumber = "150"
+                  offsetFromSymbolStart = "41">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -13,19 +13,43 @@ class GameViewController: UIViewController {
     
     @IBOutlet weak var gameBoard: UICollectionView!
     
+    @IBOutlet weak var dealButton: UIButton! {
+        didSet {
+            dealButton.layer.cornerRadius = 10
+            dealButton.layer.borderWidth = 3
+            
+            dealButton.superview?.layer.cornerRadius = 10
+            dealButton.superview?.layer.borderWidth = 3
+        }
+    }
+    @IBOutlet weak var scoreLabel: UILabel! {
+        didSet {
+            scoreLabel.layer.cornerRadius = 10
+            scoreLabel.layer.borderWidth = 3
+            
+            scoreLabel.superview?.layer.cornerRadius = 10
+            scoreLabel.superview?.layer.borderWidth = 3
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
     }
-
+    
     @IBAction func more3Card(_ sender: Any) {
         game.dealThreeMoreCards()
-        gameBoard.reloadData()
+        updateView()
     }
     
     @IBAction func newGame(_ sender: Any) {
         game.newGame()
+        updateView()
+    }
+    
+    private func updateView() {
         gameBoard.reloadData()
+        scoreLabel.text = "\(game.score) Points"
+        dealButton.superview?.isHidden = game.numberOfLeftCards == 0
     }
 }
 
@@ -45,7 +69,7 @@ extension GameViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         game.selectCard(by: indexPath.row)
-        collectionView.reloadData()
+        updateView()
     }
 }
 
