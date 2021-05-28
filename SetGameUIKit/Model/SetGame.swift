@@ -8,16 +8,18 @@
 import Foundation
 
 class SetGame {
-    private static let initialCarNumber = 12
-    private static let numberPerSet = 3
+    static let initialCarNumber = 12
+    static let numberPerSet = 3
     
     private var allCards = [GameCard]()
     
     private var selectedCards = [GameCard]()
     
+    private var setMatched = [[GameCard]]()
+
     private(set) var cardsOnTable = [GameCard]()
     
-    private var setMatched = [[GameCard]]()
+    private(set) var score = 0
     
     var numberOfLeftCards: Int {
         allCards.count
@@ -82,6 +84,7 @@ class SetGame {
                 }
             }
             
+            score += 1
             print("set match")
         } else {
             if isSetFull {
@@ -100,6 +103,7 @@ class SetGame {
     }
     
     func newGame() {
+        score = 0
         setMatched = [[GameCard]]()
         selectedCards = [GameCard]()
         allCards = [GameCard]()
@@ -124,31 +128,37 @@ class SetGame {
     
     private func createFullStackOfCards() {
         allCards = [GameCard]()
+        var count = 0
         GameCard.Number.allCases.forEach { number in
             GameCard.Shape.allCases.forEach { shape in
                 GameCard.Shading.allCases.forEach { shading in
                     GameCard.Color.allCases.forEach { color in
-                        allCards.append(GameCard(shape: shape, shading: shading, number: number, color: color))
+                        // TODO: Reove debug use code
+                        if count < 15 || true {
+                            allCards.append(GameCard(shape: shape, shading: shading, number: number, color: color))
+                            count += 1
+                        }
                     }
                 }
             }
         }
-        allCards.shuffle()
+//        allCards.shuffle()
     }
     
     private func drawCardsToDeck(numberOfCards: Int) {
-        let numberDraw = min(numberOfLeftCards, numberOfCards)
-        (0 ..< numberDraw).forEach { index in
-            let sampleCard = allCards.remove(at: index)
-            cardsOnTable.append(sampleCard)
+        (0 ..< numberOfCards).forEach { _ in
+            if let sampleCard = drawOneCardFromDeck() {
+                cardsOnTable.append(sampleCard)
+            }
         }
     }
     
     private func drawOneCardFromDeck() -> GameCard? {
-        if let cardIndex = allCards.indices.randomElement() {
-            return allCards.remove(at: cardIndex)
+        guard !allCards.isEmpty else {
+            return nil
         }
-        return nil
+        
+        return allCards.removeLast()
     }
     
     private func removeCardFromTable(with card: GameCard) {
