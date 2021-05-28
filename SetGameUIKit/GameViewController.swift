@@ -13,15 +13,8 @@ class GameViewController: UIViewController {
     
     @IBOutlet weak var gameBoard: UICollectionView!
     
-    @IBOutlet weak var dealButton: UIButton! {
-        didSet {
-            dealButton.layer.cornerRadius = 10
-            dealButton.layer.borderWidth = 3
-            
-            dealButton.superview?.layer.cornerRadius = 10
-            dealButton.superview?.layer.borderWidth = 3
-        }
-    }
+    @IBOutlet weak var dealButton: UIBarButtonItem!
+    
     @IBOutlet weak var scoreLabel: UILabel! {
         didSet {
             scoreLabel.layer.cornerRadius = 10
@@ -31,9 +24,21 @@ class GameViewController: UIViewController {
             scoreLabel.superview?.layer.borderWidth = 3
         }
     }
+
+    
+    @IBOutlet weak var leftNumberLabel: UILabel! {
+        didSet {
+            leftNumberLabel.layer.cornerRadius = 10
+            leftNumberLabel.layer.borderWidth = 3
+            
+            leftNumberLabel.superview?.layer.cornerRadius = 10
+            leftNumberLabel.superview?.layer.borderWidth = 3
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        updateView()
     }
     
     @IBAction func more3Card(_ sender: Any) {
@@ -49,7 +54,9 @@ class GameViewController: UIViewController {
     private func updateView() {
         gameBoard.reloadData()
         scoreLabel.text = "\(game.score) Points"
-        dealButton.superview?.isHidden = game.numberOfLeftCards == 0
+        leftNumberLabel.text = "\(game.numberOfLeftCards) Cards Left"
+        dealButton.isEnabled = game.numberOfLeftCards != 0
+        
     }
 }
 

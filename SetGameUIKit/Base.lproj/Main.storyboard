@@ -41,19 +41,19 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="2xT-qW-zZ5"/>
                                 </connections>
                             </collectionView>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="NiZ-9p-1ZT">
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="NiZ-9p-1ZT">
                                 <rect key="frame" x="12" y="790" width="390" height="70"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vxr-33-89b" userLabel="Score">
-                                        <rect key="frame" x="0.0" y="0.0" width="189" height="70"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vxr-33-89b" userLabel="Left Number">
+                                        <rect key="frame" x="0.0" y="0.0" width="191" height="70"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 points" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mUJ-EQ-3NS">
-                                                <rect key="frame" x="10" y="10" width="169" height="50"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 Cards Left" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mUJ-EQ-3NS">
+                                                <rect key="frame" x="10" y="10" width="171" height="50"/>
                                                 <color key="backgroundColor" red="0.91380101442337036" green="0.59742820262908936" blue="0.28700178861618042" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="D6u-dP-LA6"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="30"/>
+                                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="27"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -66,33 +66,29 @@
                                             <constraint firstItem="mUJ-EQ-3NS" firstAttribute="top" secondItem="vxr-33-89b" secondAttribute="top" constant="10" id="gLW-v2-QMo"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tJf-tf-D7F" userLabel="DealButton">
-                                        <rect key="frame" x="201" y="0.0" width="189" height="70"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rJx-MZ-FmU" userLabel="Score">
+                                        <rect key="frame" x="199" y="0.0" width="191" height="70"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lga-fx-FCN">
-                                                <rect key="frame" x="10" y="10" width="169" height="50"/>
-                                                <color key="backgroundColor" red="0.60574042800000005" green="0.11049894239999999" blue="0.1215385571" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 points" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ct7-Sc-IGB">
+                                                <rect key="frame" x="10" y="10" width="171" height="50"/>
+                                                <color key="backgroundColor" systemColor="systemPinkColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="w5H-5L-gcu"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="30"/>
-                                                <state key="normal" title="3 More Card">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="more3Card:" destination="BYZ-38-t0r" eventType="touchUpInside" id="AkX-Jc-1sf"/>
-                                                </connections>
-                                            </button>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstItem="lga-fx-FCN" firstAttribute="leading" secondItem="tJf-tf-D7F" secondAttribute="leading" constant="10" id="YFy-JN-WaW"/>
-                                            <constraint firstAttribute="bottom" secondItem="lga-fx-FCN" secondAttribute="bottom" constant="10" id="bMj-8a-LOs"/>
-                                            <constraint firstItem="lga-fx-FCN" firstAttribute="top" secondItem="tJf-tf-D7F" secondAttribute="top" constant="10" id="t1c-vm-5bS"/>
-                                            <constraint firstAttribute="trailing" secondItem="lga-fx-FCN" secondAttribute="trailing" constant="10" id="waR-b4-ab8"/>
+                                            <constraint firstAttribute="trailing" secondItem="ct7-Sc-IGB" secondAttribute="trailing" constant="10" id="5HT-xH-img"/>
+                                            <constraint firstItem="ct7-Sc-IGB" firstAttribute="leading" secondItem="rJx-MZ-FmU" secondAttribute="leading" constant="10" id="IlS-6e-2v9"/>
+                                            <constraint firstItem="ct7-Sc-IGB" firstAttribute="top" secondItem="rJx-MZ-FmU" secondAttribute="top" constant="10" id="Jq1-Ju-APb"/>
+                                            <constraint firstAttribute="bottom" secondItem="ct7-Sc-IGB" secondAttribute="bottom" constant="10" id="U2H-eK-Eeb"/>
                                         </constraints>
                                     </view>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstItem="tJf-tf-D7F" firstAttribute="height" secondItem="vxr-33-89b" secondAttribute="height" id="L15-mV-KAW"/>
-                                </constraints>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -108,16 +104,22 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Set Game" id="TbX-ci-8hb">
-                        <barButtonItem key="rightBarButtonItem" title="New Game" id="aHv-vU-aX8">
+                        <barButtonItem key="leftBarButtonItem" title="New Game" id="aHv-vU-aX8">
                             <connections>
                                 <action selector="newGame:" destination="BYZ-38-t0r" id="0ai-Gy-Krg"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="3 More Cards" id="lfb-Zu-6II">
+                            <connections>
+                                <action selector="more3Card:" destination="BYZ-38-t0r" id="2ph-VF-y7t"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="dealButton" destination="lga-fx-FCN" id="Nis-WA-TDL"/>
+                        <outlet property="dealButton" destination="lfb-Zu-6II" id="MeL-xZ-y9H"/>
                         <outlet property="gameBoard" destination="k0s-xt-4Ez" id="dHK-H1-luS"/>
-                        <outlet property="scoreLabel" destination="mUJ-EQ-3NS" id="qmb-Xf-jtZ"/>
+                        <outlet property="leftNumberLabel" destination="mUJ-EQ-3NS" id="oYk-fB-5Of"/>
+                        <outlet property="scoreLabel" destination="ct7-Sc-IGB" id="YmF-1j-Arr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -146,6 +148,9 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
