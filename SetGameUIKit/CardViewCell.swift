@@ -96,10 +96,10 @@ class CardViewCell: UICollectionViewCell {
     
     private func setBackGroundColor(with card: GameCard) {
         if card.isMatched {
-            contentView.backgroundColor = .systemPink
+            contentView.backgroundColor = #colorLiteral(red: 0.6862745098, green: 0.7960784314, blue: 1, alpha: 1)
         }
         else {
-            contentView.backgroundColor = card.isSelected ? #colorLiteral(red: 0.7371590945, green: 0.7383333638, blue: 0.6638078027, alpha: 1) : #colorLiteral(red: 0.9607843137, green: 0.9607843137, blue: 0.862745098, alpha: 1)
+            contentView.backgroundColor = card.isSelected ? #colorLiteral(red: 0.8431372549, green: 0.9764705882, blue: 1, alpha: 1) : #colorLiteral(red: 0.9764705882, green: 0.9843137255, blue: 0.9490196078, alpha: 1)
         }
     }
 }
