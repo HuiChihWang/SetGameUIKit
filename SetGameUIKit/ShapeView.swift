@@ -7,18 +7,75 @@
 
 import UIKit
 
-
-class OvalView: UIView {
-    override func draw(_ rect: CGRect) {
-        let oval = UIBezierPath(ovalIn: bounds)
-        UIColor.red.setFill()
-        oval.fill()
+class ShapeView: UIView {
+    var drawingAttribute = DrawingProperty() {
+        didSet {
+            setNeedsLayout()
+            setNeedsDisplay()
+        }
     }
+    
+    override func draw(_ rect: CGRect) {
+        super.draw(rect)
+        drawingAttribute.color.setStroke()
+        drawingAttribute.color.setFill()
+        
+        let shape = createShape()
+        
+        if drawingAttribute.shading == .stripe {
+            let stripe = createStripePattern()
+            stripe.stroke()
+        }
+        
+        shape.lineWidth = 5
+        shape.stroke()
+        
+        if drawingAttribute.shading == .solid {
+            shape.fill()
+        }
+    }
+    
+    struct DrawingProperty {
+        var shape = Shape.oval
+        var shading: Shading = .stripe
+        var color: UIColor = .green
+    }
+    
+    enum Shape {
+        case oval
+        case diamond
+        case squiggle
+    }
+    
+    enum Shading {
+        case solid
+        case stroke
+        case stripe
+    }
+    
 }
 
-
-class DiamondView: UIView {
-    override func draw(_ rect: CGRect) {
+extension ShapeView {
+    private func createShape() -> UIBezierPath {
+        let shapePath: UIBezierPath
+        
+        switch drawingAttribute.shape {
+        case .oval:
+            shapePath = createOvalShape()
+        case .diamond:
+            shapePath = createDiamondShape()
+        case .squiggle:
+            shapePath = createSquiggleShape()
+        }
+        shapePath.addClip()
+        return shapePath
+    }
+    
+    private func createOvalShape() -> UIBezierPath {
+        return UIBezierPath(ovalIn: bounds)
+    }
+    
+    private func createDiamondShape() -> UIBezierPath {
         let diamond = UIBezierPath()
         
         let halfX = (bounds.minX + bounds.maxX) / 2
@@ -30,17 +87,25 @@ class DiamondView: UIView {
         diamond.addLine(to: CGPoint(x: halfX, y: bounds.maxY))
         diamond.close()
         
-        UIColor.red.setFill()
-        diamond.fill()
+        return diamond
     }
-}
-
-class SquiggleView: UIView {
     
-    private let spanOfSquiggleRatio: CGFloat = 0.4
-    private let controlRatio: CGFloat = 0.5
+    private func createStripePattern() -> UIBezierPath {
+        let stridWidthNumber = 20
+        
+        let stripePattern = UIBezierPath()
+        stride(from: bounds.minX, to: bounds.maxX, by: bounds.width / CGFloat(stridWidthNumber)).forEach { startX in
+            stripePattern.move(to: CGPoint(x: startX, y: 0))
+            stripePattern.addLine(to: CGPoint(x: startX, y: bounds.maxY))
+        }
+        
+        return stripePattern
+    }
     
-    override func draw(_ rect: CGRect) {
+    private func createSquiggleShape() ->UIBezierPath {
+        let spanOfSquiggleRatio: CGFloat = 0.4
+        let controlRatio: CGFloat = 0.5
+        
         let squiggle = UIBezierPath()
         let squiggleSpan = bounds.height * spanOfSquiggleRatio
         let squiggleHeight = (bounds.height - squiggleSpan) / 2
@@ -64,10 +129,8 @@ class SquiggleView: UIView {
 
         
         squiggle.apply(.identity.translatedBy(x: 0, y: 0.5 * bounds.height * (1 - spanOfSquiggleRatio)))
-   
         
-        UIColor.red.setStroke()
-        UIColor.red.setFill()
-        squiggle.fill()
+        return squiggle
     }
 }
+

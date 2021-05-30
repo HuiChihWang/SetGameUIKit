@@ -155,7 +155,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="72" translatesAutoresizingMaskIntoConstraints="NO" id="yxa-bn-ZNq">
                                 <rect key="frame" x="82" y="181" width="250" height="544"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fGQ-fW-OqO" userLabel="oval" customClass="OvalView" customModule="SetGameUIKit" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fGQ-fW-OqO" userLabel="oval" customClass="ShapeView" customModule="SetGameUIKit" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="250" height="133.5"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
@@ -163,11 +163,11 @@
                                             <constraint firstAttribute="width" secondItem="fGQ-fW-OqO" secondAttribute="height" multiplier="15:8" id="uw4-bG-ehI"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PcA-0H-kmn" userLabel="squiggle" customClass="DiamondView" customModule="SetGameUIKit" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PcA-0H-kmn" userLabel="squiggle" customClass="ShapeView" customModule="SetGameUIKit" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="205.5" width="250" height="133"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="auR-Oe-ti0" userLabel="diamond" customClass="SquiggleView" customModule="SetGameUIKit" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="auR-Oe-ti0" userLabel="diamond" customClass="ShapeView" customModule="SetGameUIKit" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="410.5" width="250" height="133.5"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </view>
@@ -187,6 +187,11 @@
                             <constraint firstItem="yxa-bn-ZNq" firstAttribute="centerX" secondItem="eFS-43-Pdn" secondAttribute="centerX" id="y2f-81-S1o"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="diamondView" destination="PcA-0H-kmn" id="WhW-q5-XYn"/>
+                        <outlet property="ovalView" destination="fGQ-fW-OqO" id="C4W-E0-gVJ"/>
+                        <outlet property="squiggleView" destination="auR-Oe-ti0" id="q78-qR-ptF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ISK-yC-8Eo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

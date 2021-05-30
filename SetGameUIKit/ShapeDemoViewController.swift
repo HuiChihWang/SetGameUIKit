@@ -9,8 +9,16 @@ import UIKit
 
 class ShapeDemoViewController: UIViewController {
 
+    @IBOutlet weak var ovalView: ShapeView!
+    @IBOutlet weak var diamondView: ShapeView!
+    @IBOutlet weak var squiggleView: ShapeView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        ovalView.drawingAttribute = ShapeView.DrawingProperty(shape: .oval)
+        diamondView.drawingAttribute = ShapeView.DrawingProperty(shape: .diamond)
+        squiggleView.drawingAttribute = ShapeView.DrawingProperty(shape: .squiggle)
 
         // Do any additional setup after loading the view.
     }
