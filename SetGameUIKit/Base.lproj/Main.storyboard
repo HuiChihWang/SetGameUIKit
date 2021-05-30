@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="WLp-Ww-Gud">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dlZ-MR-ldl">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
@@ -197,6 +197,38 @@
             </objects>
             <point key="canvasLocation" x="2058" y="225"/>
         </scene>
+        <!--Card Demo Controller View Controller-->
+        <scene sceneID="h3B-e1-7cv">
+            <objects>
+                <viewController id="dlZ-MR-ldl" customClass="CardDemoControllerViewController" customModule="SetGameUIKit" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="lLi-51-kby">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LmJ-xh-FVj" customClass="GameCardView" customModule="SetGameUIKit" customModuleProvider="target">
+                                <rect key="frame" x="57" y="253" width="300" height="400"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="dxb-el-Ha6"/>
+                                    <constraint firstAttribute="width" secondItem="LmJ-xh-FVj" secondAttribute="height" multiplier="3:4" id="l5c-Y7-hUy"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="17G-Bc-oSD"/>
+                        <color key="backgroundColor" systemColor="systemTealColor"/>
+                        <constraints>
+                            <constraint firstItem="LmJ-xh-FVj" firstAttribute="centerY" secondItem="17G-Bc-oSD" secondAttribute="centerY" id="ge1-4v-xfY"/>
+                            <constraint firstItem="LmJ-xh-FVj" firstAttribute="centerX" secondItem="17G-Bc-oSD" secondAttribute="centerX" id="hSM-vf-1EV"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="cardView" destination="LmJ-xh-FVj" id="Hs7-a5-k5r"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yRw-j5-fOu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2720" y="226"/>
+        </scene>
     </scenes>
     <resources>
         <systemColor name="systemBackgroundColor">
@@ -204,6 +236,9 @@
         </systemColor>
         <systemColor name="systemPinkColor">
             <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemTealColor">
+            <color red="0.35294117647058826" green="0.78431372549019607" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

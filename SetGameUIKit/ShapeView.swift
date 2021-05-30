@@ -8,6 +8,16 @@
 import UIKit
 
 class ShapeView: UIView {
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        backgroundColor = .clear
+        contentMode = .redraw
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+    }
+    
     var drawingAttribute = DrawingProperty() {
         didSet {
             setNeedsLayout()
@@ -27,7 +37,7 @@ class ShapeView: UIView {
             stripe.stroke()
         }
         
-        shape.lineWidth = 5
+        shape.lineWidth = 10
         shape.stroke()
         
         if drawingAttribute.shading == .solid {

@@ -28,6 +28,7 @@ class CardViewCell: UICollectionViewCell {
         label.attributedText = NSAttributedString()
     }
     
+
     func configure(with card: GameCard) {
         guard !card.isEmptyCard else {
             return
@@ -39,22 +40,11 @@ class CardViewCell: UICollectionViewCell {
         
         setBackGroundColor(with: card)
         
-        let displayString = String(repeating: card.shape.rawValue, count: card.number.rawValue)
-        let displayBorderColor = getBorderColor(with: card)
-        let displayTextureColor = getTextureColor(with: card)
-        let displayFont = UIFont.systemFont(ofSize: getFontSize(with: card))
-
-        let attribute: [NSAttributedString.Key: Any] = [
-            .font: displayFont,
-            .strokeColor: displayBorderColor,
-            .strokeWidth: -10.0,
-            .foregroundColor: displayTextureColor,
-        ]
         
-        let attributeString = NSAttributedString(string: displayString, attributes: attribute)
-        label.attributedText = attributeString
+        
     }
     
+
 
     private func getBorderColor(with card: GameCard) -> UIColor {
         switch card.color {

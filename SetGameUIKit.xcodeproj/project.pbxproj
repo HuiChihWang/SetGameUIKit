@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		0C4A43F22662B95300DD49C8 /* ShapeDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4A43F12662B95300DD49C8 /* ShapeDemoViewController.swift */; };
 		0C4A43F42663662000DD49C8 /* ShapeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4A43F32663662000DD49C8 /* ShapeView.swift */; };
+		0C4A43F62663C72500DD49C8 /* GameCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4A43F52663C72500DD49C8 /* GameCardView.swift */; };
+		0C4A43F82663D37800DD49C8 /* CardDemoControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4A43F72663D37800DD49C8 /* CardDemoControllerViewController.swift */; };
 		0C77C7C7265F71240074900C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C77C7C6265F71240074900C /* AppDelegate.swift */; };
 		0C77C7C9265F71240074900C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C77C7C8265F71240074900C /* SceneDelegate.swift */; };
 		0C77C7CB265F71240074900C /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C77C7CA265F71240074900C /* GameViewController.swift */; };
@@ -23,6 +25,8 @@
 /* Begin PBXFileReference section */
 		0C4A43F12662B95300DD49C8 /* ShapeDemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapeDemoViewController.swift; sourceTree = "<group>"; };
 		0C4A43F32663662000DD49C8 /* ShapeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShapeView.swift; sourceTree = "<group>"; };
+		0C4A43F52663C72500DD49C8 /* GameCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCardView.swift; sourceTree = "<group>"; };
+		0C4A43F72663D37800DD49C8 /* CardDemoControllerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDemoControllerViewController.swift; sourceTree = "<group>"; };
 		0C77C7C3265F71240074900C /* SetGameUIKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SetGameUIKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C77C7C6265F71240074900C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0C77C7C8265F71240074900C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -72,6 +76,8 @@
 				0C4A43F32663662000DD49C8 /* ShapeView.swift */,
 				0C77C7CA265F71240074900C /* GameViewController.swift */,
 				0C77C7E3265F91B80074900C /* CardViewCell.swift */,
+				0C4A43F52663C72500DD49C8 /* GameCardView.swift */,
+				0C4A43F72663D37800DD49C8 /* CardDemoControllerViewController.swift */,
 				0C77C7CC265F71240074900C /* Main.storyboard */,
 				0C4A43F12662B95300DD49C8 /* ShapeDemoViewController.swift */,
 				0C77C7CF265F71280074900C /* Assets.xcassets */,
@@ -161,11 +167,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				0C77C7E4265F91B80074900C /* CardViewCell.swift in Sources */,
+				0C4A43F62663C72500DD49C8 /* GameCardView.swift in Sources */,
 				0C77C7CB265F71240074900C /* GameViewController.swift in Sources */,
 				0C77C7DB265F77440074900C /* GameCard.swift in Sources */,
 				0C77C7DD265F78B20074900C /* SetGame.swift in Sources */,
 				0C4A43F22662B95300DD49C8 /* ShapeDemoViewController.swift in Sources */,
 				0C77C7C7265F71240074900C /* AppDelegate.swift in Sources */,
+				0C4A43F82663D37800DD49C8 /* CardDemoControllerViewController.swift in Sources */,
 				0C4A43F42663662000DD49C8 /* ShapeView.swift in Sources */,
 				0C77C7C9265F71240074900C /* SceneDelegate.swift in Sources */,
 			);
