@@ -32,6 +32,7 @@ class GameCardView: UIView {
         return stackView
     }()
     
+    
     private func configureView() {
         guard card != nil else {
             backgroundColor = .clear
@@ -56,21 +57,6 @@ class GameCardView: UIView {
         stackView.arrangedSubviews.forEach{ $0.removeFromSuperview() }
     }
     
-    private func setBackGroundColor(with card: GameCard) {
-        if card.isMatched {
-            backgroundColor = #colorLiteral(red: 0.6862745098, green: 0.7960784314, blue: 1, alpha: 1)
-        }
-        else {
-            backgroundColor = card.isSelected ? #colorLiteral(red: 0.8431372549, green: 0.9764705882, blue: 1, alpha: 1) : #colorLiteral(red: 0.9764705882, green: 0.9843137255, blue: 0.9490196078, alpha: 1)
-        }
-    }
-    
-    private func setBoarderColor(with card: GameCard) {
-        layer.cornerRadius = 25
-        layer.borderWidth = 5
-        layer.borderColor = card.isSelected ? UIColor.red.cgColor : UIColor.black.cgColor
-    }
-
 }
 
 extension GameCardView {
@@ -106,6 +92,33 @@ extension GameCardView {
             return #colorLiteral(red: 0.5607843137, green: 0.2705882353, blue: 0.5254901961, alpha: 1)
         }
     }
+    
+    private func setBackGroundColor(with card: GameCard) {
+        if card.isMatched {
+            backgroundColor = GameCardView.matchedcolor
+        }
+        else {
+            backgroundColor = card.isSelected ? GameCardView.selectedColor : GameCardView.defaultColor
+        }
+    }
+    
+    private func setBoarderColor(with card: GameCard) {
+        layer.cornerRadius = GameCardView.cornerRadius
+        layer.borderWidth = GameCardView.borderWidth
+        let boarderColor = card.isSelected ? GameCardView.selectedBorderColor : GameCardView.UnselectedBorderColor
+        layer.borderColor = boarderColor.cgColor
+    }
+}
+
+extension GameCardView {
+    private static let selectedColor = #colorLiteral(red: 0.8431372549, green: 0.9764705882, blue: 1, alpha: 1)
+    private static let defaultColor = #colorLiteral(red: 0.9764705882, green: 0.9843137255, blue: 0.9490196078, alpha: 1)
+    private static let matchedcolor = #colorLiteral(red: 0.6862745098, green: 0.7960784314, blue: 1, alpha: 1)
+    
+    private static let selectedBorderColor = UIColor.red
+    private static let UnselectedBorderColor = UIColor.black
+    private static let borderWidth: CGFloat = 5
+    private static let cornerRadius: CGFloat = 25
 }
 
 extension CGRect {

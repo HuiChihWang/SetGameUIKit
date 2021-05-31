@@ -9,6 +9,7 @@ import Foundation
 
 class SetGame {
     static let initialCarNumber = 12
+    static let maximumAvailableCards = 18
     static let numberPerSet = 3
     
     private var allCards = [GameCard]()
@@ -25,12 +26,16 @@ class SetGame {
         allCards.count
     }
     
-    private var isSetFull: Bool {
-        selectedCards.count == SetGame.numberPerSet
+    var isDealAllowed: Bool {
+        cardsOnTable.count < SetGame.maximumAvailableCards && numberOfLeftCards > 0
     }
     
     private var isSetMatch: Bool {
         SetGame.isSetMatch(cardsInSet: selectedCards)
+    }
+    
+    private var isSetFull: Bool {
+        selectedCards.count == SetGame.numberPerSet
     }
     
     init() {
@@ -99,6 +104,10 @@ class SetGame {
     }
     
     func dealThreeMoreCards() {
+        guard isDealAllowed else {
+            return
+        }
+        
         drawCardsToDeck(numberOfCards: 3)
     }
     

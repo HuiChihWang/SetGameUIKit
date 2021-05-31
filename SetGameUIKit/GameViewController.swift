@@ -55,8 +55,7 @@ class GameViewController: UIViewController {
         gameBoard.reloadData()
         scoreLabel.text = "\(game.score) Points"
         leftNumberLabel.text = "\(game.numberOfLeftCards) Cards Left"
-        dealButton.isEnabled = game.numberOfLeftCards != 0
-        
+        dealButton.isEnabled = game.isDealAllowed
     }
 }
 
@@ -78,7 +77,5 @@ extension GameViewController: UICollectionViewDelegate, UICollectionViewDataSour
         game.selectCard(by: indexPath.row)
         updateView()
     }
-    
-
 }
 

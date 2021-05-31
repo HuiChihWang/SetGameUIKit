@@ -31,18 +31,19 @@ class ShapeView: UIView {
         drawingAttribute.color.setFill()
         
         let shape = createShape()
+        shape.lineWidth = 8
         
         if drawingAttribute.shading == .stripe {
             let stripe = createStripePattern()
             stripe.stroke()
+            shape.lineWidth = 5
         }
-        
-        shape.lineWidth = 10
-        shape.stroke()
         
         if drawingAttribute.shading == .solid {
             shape.fill()
         }
+        
+        shape.stroke()
     }
     
     struct DrawingProperty {
@@ -113,7 +114,7 @@ extension ShapeView {
     }
     
     private func createSquiggleShape() ->UIBezierPath {
-        let spanOfSquiggleRatio: CGFloat = 0.4
+        let spanOfSquiggleRatio: CGFloat = 0.6
         let controlRatio: CGFloat = 0.5
         
         let squiggle = UIBezierPath()

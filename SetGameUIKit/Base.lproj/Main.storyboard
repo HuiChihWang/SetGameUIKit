@@ -195,7 +195,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ISK-yC-8Eo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2058" y="225"/>
+            <point key="canvasLocation" x="1761" y="117"/>
         </scene>
         <!--Card Demo Controller View Controller-->
         <scene sceneID="h3B-e1-7cv">
