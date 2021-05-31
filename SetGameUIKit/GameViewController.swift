@@ -78,5 +78,7 @@ extension GameViewController: UICollectionViewDelegate, UICollectionViewDataSour
         game.selectCard(by: indexPath.row)
         updateView()
     }
+    
+
 }
 
