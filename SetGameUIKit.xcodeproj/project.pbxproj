@@ -53,9 +53,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0C4A43FF2664C03C00DD49C8 /* Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				0C77C7C6265F71240074900C /* AppDelegate.swift */,
+				0C77C7C8265F71240074900C /* SceneDelegate.swift */,
+			);
+			path = Delegate;
+			sourceTree = "<group>";
+		};
 		0C77C7BA265F71240074900C = {
 			isa = PBXGroup;
 			children = (
+				0C4A43FF2664C03C00DD49C8 /* Delegate */,
 				0C77C7C5265F71240074900C /* SetGameUIKit */,
 				0C77C7C4265F71240074900C /* Products */,
 			);
@@ -74,8 +84,6 @@
 			children = (
 				0C4A43FD2664B94100DD49C8 /* GameBoardLayout.swift */,
 				0C77C7DE265F87C50074900C /* Model */,
-				0C77C7C6265F71240074900C /* AppDelegate.swift */,
-				0C77C7C8265F71240074900C /* SceneDelegate.swift */,
 				0C4A43F32663662000DD49C8 /* ShapeView.swift */,
 				0C77C7CA265F71240074900C /* GameViewController.swift */,
 				0C77C7E3265F91B80074900C /* CardViewCell.swift */,
