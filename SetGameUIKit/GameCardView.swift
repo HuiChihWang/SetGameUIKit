@@ -11,6 +11,7 @@ class GameCardView: UIView {
     
     var card: GameCard? {
         didSet {
+            clearStack()
             configureView()
         }
     }
@@ -24,9 +25,6 @@ class GameCardView: UIView {
             stackView.spacing = 5
             stackView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
             addSubview(stackView)
-        
-//        stackView.layer.borderWidth = 5
-//        stackView.layer.borderColor = UIColor.black.cgColor
         
         stackView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         stackView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
@@ -52,6 +50,10 @@ class GameCardView: UIView {
             setBackGroundColor(with: card)
             setBoarderColor(with: card)
         }
+    }
+    
+    private func clearStack() {
+        stackView.arrangedSubviews.forEach{ $0.removeFromSuperview() }
     }
     
     private func setBackGroundColor(with card: GameCard) {

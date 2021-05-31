@@ -17,8 +17,8 @@ struct GameCard {
     let shading: Shading
     let number : Number
     let color: Color
+    
     var isEmptyCard = false
-
     var isSelected = false
     var isMatched = false
     
