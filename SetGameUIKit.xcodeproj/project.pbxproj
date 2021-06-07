@@ -53,6 +53,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0C2CF2B0266E533F009CD4B0 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				0C77C7CA265F71240074900C /* GameViewController.swift */,
+				0C4A43F72663D37800DD49C8 /* CardDemoControllerViewController.swift */,
+				0C4A43F12662B95300DD49C8 /* ShapeDemoViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
 		0C4A43FF2664C03C00DD49C8 /* Delegate */ = {
 			isa = PBXGroup;
 			children = (
@@ -82,15 +92,13 @@
 		0C77C7C5265F71240074900C /* SetGameUIKit */ = {
 			isa = PBXGroup;
 			children = (
+				0C2CF2B0266E533F009CD4B0 /* ViewController */,
 				0C4A43FD2664B94100DD49C8 /* GameBoardLayout.swift */,
 				0C77C7DE265F87C50074900C /* Model */,
 				0C4A43F32663662000DD49C8 /* ShapeView.swift */,
-				0C77C7CA265F71240074900C /* GameViewController.swift */,
 				0C77C7E3265F91B80074900C /* CardViewCell.swift */,
 				0C4A43F52663C72500DD49C8 /* GameCardView.swift */,
-				0C4A43F72663D37800DD49C8 /* CardDemoControllerViewController.swift */,
 				0C77C7CC265F71240074900C /* Main.storyboard */,
-				0C4A43F12662B95300DD49C8 /* ShapeDemoViewController.swift */,
 				0C77C7CF265F71280074900C /* Assets.xcassets */,
 				0C77C7D1265F71280074900C /* LaunchScreen.storyboard */,
 				0C77C7D4265F71280074900C /* Info.plist */,

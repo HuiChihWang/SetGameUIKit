@@ -13,8 +13,6 @@ class GameViewController: UIViewController {
     
     @IBOutlet weak var gameBoard: UICollectionView!
     
-    @IBOutlet weak var dealButton: UIBarButtonItem!
-    
     @IBOutlet weak var scoreLabel: UILabel! {
         didSet {
             scoreLabel.layer.cornerRadius = 10
@@ -41,9 +39,26 @@ class GameViewController: UIViewController {
         updateView()
     }
     
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        
+        updateView()
+    }
+    
     @IBAction func more3Card(_ sender: Any) {
         game.dealThreeMoreCards()
         updateView()
+    }
+    
+    @IBAction func reShuffleCards(_ sender: Any) {
+        if let rotationGesture = sender as? UIRotationGestureRecognizer {
+            
+            if abs(rotationGesture.rotation) > .pi * 0.4 {
+                print("trigger: \(rotationGesture.rotation)")
+                game.reDealCards()
+                updateView()
+            }
+        }
     }
     
     @IBAction func newGame(_ sender: Any) {
@@ -55,7 +70,6 @@ class GameViewController: UIViewController {
         gameBoard.reloadData()
         scoreLabel.text = "\(game.score) Points"
         leftNumberLabel.text = "\(game.numberOfLeftCards) Cards Left"
-        dealButton.isEnabled = game.isDealAllowed
     }
 }
 

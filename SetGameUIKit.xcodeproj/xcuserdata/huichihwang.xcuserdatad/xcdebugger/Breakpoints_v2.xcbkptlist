@@ -14,8 +14,8 @@
             filePath = "SetGameUIKit/Model/SetGame.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "125"
-            endingLineNumber = "125"
+            startingLineNumber = "150"
+            endingLineNumber = "150"
             landmarkName = "deselectCardOnTable(on:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -30,8 +30,8 @@
             filePath = "SetGameUIKit/Model/SetGame.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "158"
-            endingLineNumber = "158"
+            startingLineNumber = "183"
+            endingLineNumber = "183"
             landmarkName = "drawCardsToDeck(numberOfCards:)"
             landmarkType = "7">
             <Locations>
@@ -114,6 +114,22 @@
             endingLineNumber = "21"
             landmarkName = "scoreLabel"
             landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "24A0BCFD-8B7F-4F90-A1B4-8E16523FCA60"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SetGameUIKit/ViewController/GameViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
+            landmarkName = "viewWillTransition(to:with:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

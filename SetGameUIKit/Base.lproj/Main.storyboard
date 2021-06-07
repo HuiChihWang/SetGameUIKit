@@ -93,6 +93,7 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="NiZ-9p-1ZT" secondAttribute="trailing" constant="12" id="4c6-bA-COj"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="k0s-xt-4Ez" secondAttribute="bottom" constant="84" id="8c1-R8-mcO"/>
@@ -102,27 +103,35 @@
                             <constraint firstItem="k0s-xt-4Ez" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="jIl-Z8-mHp"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="k0s-xt-4Ez" secondAttribute="trailing" constant="20" id="pmp-2x-d7T"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="jJ5-Gg-pV7" appends="YES" id="wz7-ro-VpY"/>
+                            <outletCollection property="gestureRecognizers" destination="W2u-sI-cDy" appends="YES" id="LKW-gc-8qM"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Set Game" id="TbX-ci-8hb">
-                        <barButtonItem key="leftBarButtonItem" title="New Game" id="aHv-vU-aX8">
+                        <barButtonItem key="rightBarButtonItem" title="New Game" id="aHv-vU-aX8">
                             <connections>
                                 <action selector="newGame:" destination="BYZ-38-t0r" id="0ai-Gy-Krg"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="3 More Cards" id="lfb-Zu-6II">
-                            <connections>
-                                <action selector="more3Card:" destination="BYZ-38-t0r" id="2ph-VF-y7t"/>
-                            </connections>
-                        </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="dealButton" destination="lfb-Zu-6II" id="MeL-xZ-y9H"/>
                         <outlet property="gameBoard" destination="k0s-xt-4Ez" id="dHK-H1-luS"/>
                         <outlet property="leftNumberLabel" destination="mUJ-EQ-3NS" id="oYk-fB-5Of"/>
                         <outlet property="scoreLabel" destination="ct7-Sc-IGB" id="YmF-1j-Arr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="down" id="jJ5-Gg-pV7">
+                    <connections>
+                        <action selector="more3Card:" destination="BYZ-38-t0r" id="Zzb-02-X6l"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <rotationGestureRecognizer id="W2u-sI-cDy">
+                    <connections>
+                        <action selector="reShuffleCards:" destination="BYZ-38-t0r" id="G2U-0l-Ffr"/>
+                    </connections>
+                </rotationGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1042.0289855072465" y="116.51785714285714"/>
         </scene>

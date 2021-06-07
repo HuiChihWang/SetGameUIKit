@@ -18,9 +18,7 @@ class GameCardView: UIView {
     
     private lazy var stackView: UIStackView = {
         let stackView = UIStackView(frame: bounds.zoom(ratio: 0.8))
-            
             stackView.alignment = .fill
-            stackView.axis = .vertical
             stackView.distribution = .fillEqually
             stackView.spacing = 5
             stackView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
@@ -31,7 +29,6 @@ class GameCardView: UIView {
         
         return stackView
     }()
-    
     
     private func configureView() {
         guard card != nil else {
@@ -55,6 +52,7 @@ class GameCardView: UIView {
     
     private func clearStack() {
         stackView.arrangedSubviews.forEach{ $0.removeFromSuperview() }
+        stackView.axis = UIDevice.current.orientation.isLandscape ? .horizontal : .vertical
     }
     
 }

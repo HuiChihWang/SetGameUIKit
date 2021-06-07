@@ -8,7 +8,7 @@
 import Foundation
 
 class SetGame {
-    static let initialCarNumber = 12
+    static let initialCardNumber = 12
     static let maximumAvailableCards = 18
     static let numberPerSet = 3
     
@@ -108,8 +108,29 @@ class SetGame {
             return
         }
         
+        if isSetMatch {
+            moveMatchedCardSet()
+            return
+        }
+        
         drawCardsToDeck(numberOfCards: 3)
     }
+    
+    func reDealCards() {
+        if !isSetMatch {
+            deselectAllCardsOnTable()
+        }
+        else {
+            moveMatchedCardSet()
+        }
+        
+        allCards += cardsOnTable
+//        allCards.shuffle()
+        
+        cardsOnTable = [GameCard]()
+        drawCardsToDeck(numberOfCards: SetGame.initialCardNumber)
+    }
+    
     
     func newGame() {
         score = 0
@@ -118,7 +139,11 @@ class SetGame {
         allCards = [GameCard]()
         cardsOnTable = [GameCard]()
         createFullStackOfCards()
-        drawCardsToDeck(numberOfCards: SetGame.initialCarNumber)
+        drawCardsToDeck(numberOfCards: SetGame.initialCardNumber)
+    }
+    
+    private func deselectAllCardsOnTable() {
+        cardsOnTable.forEach {deselectCardOnTable(on: $0)}
     }
     
     private func deselectCardOnTable(on card: GameCard) {
