@@ -109,6 +109,11 @@
                         </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Set Game" id="TbX-ci-8hb">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="info.circle" catalog="system" id="nKJ-kk-QdW">
+                            <connections>
+                                <action selector="showInfo:" destination="BYZ-38-t0r" id="GNY-wv-mdr"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="New Game" id="aHv-vU-aX8">
                             <connections>
                                 <action selector="newGame:" destination="BYZ-38-t0r" id="0ai-Gy-Krg"/>
@@ -240,6 +245,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="info.circle" catalog="system" width="128" height="121"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

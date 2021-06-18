@@ -125,7 +125,7 @@ class SetGame {
         }
         
         allCards += cardsOnTable
-//        allCards.shuffle()
+        allCards.shuffle()
         
         cardsOnTable = [GameCard]()
         drawCardsToDeck(numberOfCards: SetGame.initialCardNumber)
@@ -176,7 +176,7 @@ class SetGame {
                 }
             }
         }
-//        allCards.shuffle()
+        allCards.shuffle()
     }
     
     private func drawCardsToDeck(numberOfCards: Int) {

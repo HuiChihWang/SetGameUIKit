@@ -34,6 +34,26 @@ class GameViewController: UIViewController {
         }
     }
     
+    @IBAction func showInfo(_ sender: Any) {
+        let alert = UIAlertController(title: "Instruction", message: "Deal 3 more cards: swipe down\n Shuffle cards: circle the screen\n If you want to know how to play, please view the tutorial video", preferredStyle: .alert)
+        
+        let viewWebsite = UIAlertAction(title: "Tutorial", style: .cancel) { _ in
+            
+            if let url = URL(string: "https://www.youtube.com/watch?v=azaArSs-i0c&t=2s") {
+                UIApplication.shared.open(url)
+            }
+        }
+        
+        alert.addAction(viewWebsite)
+        
+        let cancel = UIAlertAction(title: "OK", style: .default, handler: nil)
+        
+        alert.addAction(cancel)
+        
+        
+        present(alert, animated: true, completion: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         updateView()
